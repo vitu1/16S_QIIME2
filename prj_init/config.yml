@@ -1,33 +1,33 @@
 all:
-    project_dir: "/home/danielsg/16S_QIIME2/test"
-    mux_dir: "multiplexed_fastq"
-    mapping: "test_mapping_file.tsv"
-    admin_email: "danielsg@email.chop.edu"
+    project_dir: "/scr1/users/tuv/22-01-21_USDA_Run35_Chlorine"
+    mux_dir: "data_files"
+    mapping: "registering_samples/USDA_Run35_Chlorine-mapping_file.tsv"
+    admin_email: "tuv@chop.edu"
 
 #try revcomp if you are getting 0 reads when demultiplexing
 demux:
     mismatch: 0
-    revcomp: false
+    revcomp: TRUE
 
 denoise:
     trim_left_f: 0
-    trunc_len_f: 240
+    trunc_len_f: 251
     trim_left_r: 0
-    trunc_len_r: 240
-    n_threads: 6
+    trunc_len_r: 251
+    n_threads: 8
 
 taxonomy:
-    classifier_fp: "/home/danielsg/16S_QIIME2/QIIME2_data/gg-13-8-99-nb-classifier.qza"
+    classifier_fp: "/home/tuv/16S_QIIME2/QIIME2_data/gg-13-8-99-nb-classifier.qza"
 
 diversity:
     sampling_depth: 1000
 
 unassign:
-    unassigner_species_fp: "/home/danielsg/16S_QIIME2/unassign_data/unassigner_species.fasta"
+    unassigner_species_fp: "/home/tuv/16S_QIIME2/unassign_data/unassigner_species.fasta"
 
 dada2:
-    rscript: "/home/danielsg/16S_QIIME2/scripts/dada2.R"
-    species_training_set: "/home/danielsg/16S_QIIME2/dada2_data/rdp_species_assignment_16.fa.gz"
+    rscript: "/home/tuv/16S_QIIME2/scripts/dada2.R"
+    species_training_set: "/home/tuv/16S_QIIME2/dada2_data/rdp_species_assignment_16.fa.gz"
 
 vsearch:
     db: "/mnt/isilon/microbiome/analysis/biodata/green_genes/current_gg16S.fasta"
@@ -38,4 +38,3 @@ vsearch:
     iddef: 2 #the way "identity" is calculated, see vsearch docs for details (it's equal to (matching columns) / (alignment length) excluding terminal gaps)
     fasta_width: 0 #Width of alignment lines in fasta output, set to 0 to eliminate wrapping
     maxaccepts: 1 #Maximum number of hits to accept before stopping the search Default is 1
-

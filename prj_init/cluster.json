@@ -1,0 +1,18 @@
+{
+	"__default__" :
+	{
+		"mem_free" : "8G"
+	},
+	"run_dada2" :
+	{
+		"mem_free": "192G"
+	},
+	"alignment" :
+        {
+                "mem_free": "128G"
+        },
+	"dada2_assignSpecies" :
+        {
+                "mem_free": "256G"
+        }
+}
